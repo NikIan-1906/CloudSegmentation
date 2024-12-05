@@ -1,7 +1,7 @@
-A cloud segmentation system. Makes a real-life image tracking vrom camera and (if "SPACE" button is pressed) returns masked image to the screen.  
+A cloud segmentation system. Makes a real-life image tracking from camera and (if "SPACE" button is pressed) returns masked image to the screen.  
   
 INSTALLING  
-	download main.py  
+	copy and dearchive the repository  
 	download all libraries from requirements.txt  
 	launch main.py  
 	enjoy  
@@ -9,3 +9,6 @@ INSTALLING
 WHILE USING  
 	press "SPACE" button to start or release to stop segmentation  
 	press "Q" button to quit  
+
+WARNING
+	program starts with some delay. Pictures should not contain any hwite objects excepting clouds, or there could be some differences in masking. FPS will be low while "SPACE" pressed due to convolutional network works slowly
