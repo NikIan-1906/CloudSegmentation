@@ -10,5 +10,5 @@ WHILE USING
 	press "SPACE" button to start or release to stop segmentation  
 	press "Q" button to quit  
 
-WARNING
-	program starts with some delay. Pictures should not contain any hwite objects excepting clouds, or there could be some differences in masking. FPS will be low while "SPACE" pressed due to convolutional network works slowly
+WARNING  
+	program starts with some delay. Pictures should not contain any white objects excepting clouds, or there could be some differences in masking. FPS will be low while "SPACE" pressed due to convolutional network works slowly
