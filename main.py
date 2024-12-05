@@ -1,12 +1,34 @@
 import cv2
-import numpy as np
+import UNET
+import torch
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
+
 cap = cv2.VideoCapture(0)
 
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 300)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 300)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+test_transform = A.Compose([A.Resize(300, 300),
+                           A.Normalize(mean=(0,0,0), std=(1,1,1), max_pixel_value=255),
+                           ToTensorV2()])
+trained_model = UNET.UNET(in_chnls = 3, n_classes = 1)
+trained_model.load_state_dict(torch.load("unet_scratch.pth", map_location="cpu"))
+trained_model = trained_model.to(device)
 
 def find_clouds(image):
-    return cv2.inRange(cv2.cvtColor(image, cv2.COLOR_BGR2HSV), np.array([0, 0, 150]), np.array([179, 70, 255]))
+    img = image
+    test_image = test_transform(image=img)
+    img = test_image["image"].unsqueeze(0)
+    img = img.to(device)
+    pred = trained_model(img)
+
+    mask = pred.squeeze(0).cpu().detach().numpy()
+    mask = mask.transpose(1, 2, 0)
+    mask[mask <= 1] = 0
+    mask[mask > 1] = 1
+
+    return mask
 
 while cap.isOpened():
     ret, frame = cap.read()
