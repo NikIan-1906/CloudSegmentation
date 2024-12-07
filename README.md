@@ -1,11 +1,3 @@
-A cloud segmentation system. Makes a real-life image tracking vrom camera and (if "SPACE" button is pressed) returns masked image to the screen.  
-  
-INSTALLING  
-	download main.py  
-	download all libraries from requirements.txt  
-	launch main.py  
-	enjoy  
-  
-WHILE USING  
-	press "SPACE" button to start or release to stop segmentation  
-	press "Q" button to quit  
+version https://git-lfs.github.com/spec/v1
+oid sha256:7650dde04379c2ce0e14b1295c5ef4902900ebacfc3d790970903c4b9e3f6d5b
+size 368
