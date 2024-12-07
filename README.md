@@ -11,7 +11,7 @@ WHILE USING
 	press "Q" button to quit  
 
 WARNING  
-	program starts with some delay. Pictures should not contain any white objects excepting clouds, or there could be some differences in masking. FPS will be low while "SPACE" pressed due to convolutional network works slowly  
+	program starts with some delay. Pictures should not contain any white objects excepting clouds, or there could be some differences in masking. FPS will be low while "SPACE" pressed due to convolutional network works slowly. UNET usually makes some mistakes while segmentation if showing clouds with any other objects excepting sky or if picture is shown from any light-emmitting display.  
    
 MUST HAVE  
 	python >= 3.10  
